@@ -1,0 +1,684 @@
+1. Hello World!
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        // Print Hello World message
+        System.out.println("Hello World!");
+    }
+}
+
+
+2. Prime Number
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        boolean isPrime = true;
+
+        // 0 and 1 are not prime numbers
+        if (num <= 1) {
+            isPrime = false;
+        } else {
+            // Check divisibility from 2 to sqrt(num)
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(num + " is a Prime Number");
+        } else {
+            System.out.println(num + " is not a Prime Number");
+        }
+        sc.close();
+    }
+}
+
+
+3. Palindrome Number
+
+import java.util.Scanner;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int original = num;
+        int reverse = 0;
+
+        // Reverse the number
+        while (num > 0) {
+            int digit = num % 10;
+            reverse = reverse * 10 + digit;
+            num = num / 10;
+        }
+
+        // Check if original and reverse are same
+        if (original == reverse) {
+            System.out.println(original + " is a Palindrome Number");
+        } else {
+            System.out.println(original + " is not a Palindrome Number");
+        }
+        sc.close();
+    }
+}
+
+
+4. Armstrong Number
+
+import java.util.Scanner;
+
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int original = num;
+        int sum = 0;
+        int digits = String.valueOf(num).length(); // Count number of digits
+
+        // Calculate sum of each digit raised to power of number of digits
+        while (num > 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, digits);
+            num = num / 10;
+        }
+
+        if (sum == original) {
+            System.out.println(original + " is an Armstrong Number");
+        } else {
+            System.out.println(original + " is not an Armstrong Number");
+        }
+        sc.close();
+    }
+}
+
+
+5. Strong Number
+
+import java.util.Scanner;
+
+public class StrongNumber {
+    // Method to calculate factorial
+    public static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int original = num;
+        int sum = 0;
+
+        // Sum of factorial of each digit
+        while (num > 0) {
+            int digit = num % 10;
+            sum += factorial(digit);
+            num = num / 10;
+        }
+
+        if (sum == original) {
+            System.out.println(original + " is a Strong Number");
+        } else {
+            System.out.println(original + " is not a Strong Number");
+        }
+        sc.close();
+    }
+}
+
+
+6. Even Odd
+
+import java.util.Scanner;
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        // Check even or odd using modulo operator
+        if (num % 2 == 0) {
+            System.out.println(num + " is Even");
+        } else {
+            System.out.println(num + " is Odd");
+        }
+        sc.close();
+    }
+}
+
+
+7. Leap Year
+
+import java.util.Scanner;
+
+public class LeapYear {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+
+        // Leap year conditions
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " is a Leap Year");
+        } else {
+            System.out.println(year + " is not a Leap Year");
+        }
+        sc.close();
+    }
+}
+
+
+8. Celsius to Fahrenheit
+
+import java.util.Scanner;
+
+public class CelsiusToFahrenheit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = sc.nextDouble();
+
+        // Formula: F = (C * 9/5) + 32
+        double fahrenheit = (celsius * 9 / 5) + 32;
+        System.out.println(celsius + "°C = " + fahrenheit + "°F");
+        sc.close();
+    }
+}
+
+
+9. Perfect Number
+
+import java.util.Scanner;
+
+public class PerfectNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int sum = 0;
+
+        // Find sum of proper divisors
+        for (int i = 1; i < num; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+
+        if (sum == num) {
+            System.out.println(num + " is a Perfect Number");
+        } else {
+            System.out.println(num + " is not a Perfect Number");
+        }
+        sc.close();
+    }
+}
+
+
+10. Fibonacci Series
+
+import java.util.Scanner;
+
+public class FibonacciSeries {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of terms: ");
+        int n = sc.nextInt();
+
+        int first = 0, second = 1;
+        System.out.print("Fibonacci Series: ");
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print(first + " ");
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+        sc.close();
+    }
+}
+
+
+11. Factorial
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        long fact = 1;
+
+        // Calculate factorial
+        for (int i = 1; i <= num; i++) {
+            fact *= i;
+        }
+        System.out.println("Factorial of " + num + " is " + fact);
+        sc.close();
+    }
+}
+
+
+12. Sum of Digits
+
+import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int sum = 0;
+
+        // Add each digit
+        while (num > 0) {
+            sum += num % 10;
+            num = num / 10;
+        }
+        System.out.println("Sum of digits = " + sum);
+        sc.close();
+    }
+}
+
+
+13. Star Triangle
+
+import java.util.Scanner;
+
+public class StarTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+
+        // Right-angled triangle of stars
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
+
+
+14. Pyramid
+
+import java.util.Scanner;
+
+public class Pyramid {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+
+        // Centered pyramid of stars
+        for (int i = 1; i <= rows; i++) {
+            // Print spaces
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
+
+
+15. Diamond
+
+import java.util.Scanner;
+
+public class Diamond {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows (odd preferred): ");
+        int n = sc.nextInt();
+
+        // Upper half of diamond
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // Lower half of diamond
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
+
+
+16. Number Swap
+
+import java.util.Scanner;
+
+public class NumberSwap {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.println("Before swap: a = " + a + ", b = " + b);
+
+        // Swap using temporary variable
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println("After swap: a = " + a + ", b = " + b);
+        sc.close();
+    }
+}
+
+
+17. Decimal to Binary
+
+import java.util.Scanner;
+
+public class DecimalToBinary {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        int decimal = sc.nextInt();
+
+        // Built-in method
+        String binary = Integer.toBinaryString(decimal);
+        System.out.println("Binary of " + decimal + " is " + binary);
+        sc.close();
+    }
+}
+
+
+18. Simple Calculator (Switch-case)
+
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double num1 = sc.nextDouble();
+        System.out.print("Enter second number: ");
+        double num2 = sc.nextDouble();
+        System.out.print("Enter operator (+, -, *, /): ");
+        char op = sc.next().charAt(0);
+
+        double result = 0;
+
+        // Switch-case for operations
+        switch (op) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Cannot divide by zero!");
+                    sc.close();
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Invalid operator!");
+                sc.close();
+                return;
+        }
+        System.out.println("Result = " + result);
+        sc.close();
+    }
+}
+
+
+19. Largest among 3 Numbers
+
+import java.util.Scanner;
+
+public class LargestOfThree {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        System.out.print("Enter third number: ");
+        int c = sc.nextInt();
+
+        int largest;
+
+        // Find largest using if-else
+        if (a >= b && a >= c) {
+            largest = a;
+        } else if (b >= a && b >= c) {
+            largest = b;
+        } else {
+            largest = c;
+        }
+
+        System.out.println("Largest number is: " + largest);
+        sc.close();
+    }
+}
+
+
+21. Password (do-while)
+
+import java.util.Scanner;
+
+public class PasswordCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String correctPassword = "java123";
+        String input;
+
+        // Keep asking until correct password is entered
+        do {
+            System.out.print("Enter password: ");
+            input = sc.nextLine();
+            if (!input.equals(correctPassword)) {
+                System.out.println("Wrong password! Try again.");
+            }
+        } while (!input.equals(correctPassword));
+
+        System.out.println("Access granted!");
+        sc.close();
+    }
+}
+
+
+22. Student class with 3 Objects
+
+class Student {
+    String name;
+    int roll;
+    double marks;
+
+    // Constructor
+    Student(String name, int roll, double marks) {
+        this.name = name;
+        this.roll = roll;
+        this.marks = marks;
+    }
+
+    // Display method
+    void display() {
+        System.out.println("Name: " + name + ", Roll: " + roll + ", Marks: " + marks);
+    }
+}
+
+public class StudentDemo {
+    public static void main(String[] args) {
+        // Creating 3 Student objects
+        Student s1 = new Student("Rahim", 101, 85.5);
+        Student s2 = new Student("Karim", 102, 90.0);
+        Student s3 = new Student("Salma", 103, 78.5);
+
+        // Displaying details
+        s1.display();
+        s2.display();
+        s3.display();
+    }
+}
+
+
+23. Use of Local and Instance Variable
+
+public class VariableDemo {
+    // Instance variable (belongs to object)
+    int instanceVar = 50;
+
+    public void show() {
+        // Local variable (exists only inside method)
+        int localVar = 20;
+        System.out.println("Instance Variable: " + instanceVar);
+        System.out.println("Local Variable: " + localVar);
+    }
+
+    public static void main(String[] args) {
+        VariableDemo obj = new VariableDemo();
+        obj.show();
+    }
+}
+
+
+24. Use of Shift Operator
+
+public class ShiftOperator {
+    public static void main(String[] args) {
+        int num = 8; // Binary: 1000
+
+        // Left shift (multiplies by 2^n)
+        int leftShift = num << 2; // 8 * 4 = 32
+        System.out.println("Left Shift (8 << 2) = " + leftShift);
+
+        // Right shift (divides by 2^n)
+        int rightShift = num >> 1; // 8 / 2 = 4
+        System.out.println("Right Shift (8 >> 1) = " + rightShift);
+    }
+}
+
+
+25. Leap Year (ternary operator)
+
+import java.util.Scanner;
+
+public class LeapYearTernary {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+
+        // Using ternary operator
+        String result = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+                        ? year + " is a Leap Year"
+                        : year + " is not a Leap Year";
+
+        System.out.println(result);
+        sc.close();
+    }
+}
+
+
+26. GCD
+
+import java.util.Scanner;
+
+public class GCD {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        // Euclidean algorithm
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        System.out.println("GCD = " + a);
+        sc.close();
+    }
+}
+
+
+27. LCM
+
+import java.util.Scanner;
+
+public class LCM {
+    // Helper method to find GCD
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        // LCM formula: (a * b) / GCD
+        int lcm = (a * b) / gcd(a, b);
+        System.out.println("LCM = " + lcm);
+        sc.close();
+    }
+}
+
+
+30. Just print how you feel after done this
+
+public class Feelings {
+    public static void main(String[] args) {
+        // After completing all these programs
+        System.out.println("I feel great and more confident in Java programming!");
+        System.out.println("Practice makes perfect. Keep coding!");
+    }
+}
