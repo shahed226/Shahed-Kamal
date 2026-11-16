@@ -1,0 +1,690 @@
+1. Hello World!
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        // screen e ekta message dekhacchi, eta shobcheye shohoj program
+        System.out.println("Hello World!");
+    }
+}
+
+
+2. Prime Number
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); // user er theke input nibo tai
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        boolean isPrime = true; // shurute dhore nilam prime, pore lagle change korbo
+
+        // 0 ar 1 prime na, tai age e bad dilam
+        if (num <= 1) {
+            isPrime = false;
+        } else {
+            // square root porjonto check korlei hoy, puro ta korar dorkar nai
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) { // bhag gele mane prime na, loop thamiye dilam
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        // result dekhacchi
+        if (isPrime) {
+            System.out.println(num + " is a Prime Number");
+        } else {
+            System.out.println(num + " is not a Prime Number");
+        }
+        sc.close();
+    }
+}
+
+
+3. Palindrome Number
+
+import java.util.Scanner;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int original = num; // ashol ta rekhe dilam, karon num to loop e change hoye jabe
+        int reverse = 0;
+
+        // ekta ekta digit niye number ta ulta cchi
+        while (num > 0) {
+            int digit = num % 10; // shesh er digit ta ber korlam
+            reverse = reverse * 10 + digit; // ulta number er pichone boshiye dilam
+            num = num / 10; // shesh er digit kete fellam
+        }
+
+        // ulta korleo jodi same thake tahole palindrome
+        if (original == reverse) {
+            System.out.println(original + " is a Palindrome Number");
+        } else {
+            System.out.println(original + " is not a Palindrome Number");
+        }
+        sc.close();
+    }
+}
+
+
+4. Armstrong Number
+
+import java.util.Scanner;
+
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int original = num; // shesh e milanor jonno ashol number ta rekhe dilam
+        int sum = 0;
+        int digits = String.valueOf(num).length(); // number ta te koyta digit ache gune nilam
+
+        // prottek digit er power (digit shonkha) niye jog korchi
+        while (num > 0) {
+            int digit = num % 10; // shesh er digit
+            sum += Math.pow(digit, digits);
+            num = num / 10; // shesh er digit bad
+        }
+
+        // jogfol ashol number er soman hole Armstrong
+        if (sum == original) {
+            System.out.println(original + " is an Armstrong Number");
+        } else {
+            System.out.println(original + " is not an Armstrong Number");
+        }
+        sc.close();
+    }
+}
+
+
+5. Strong Number
+
+import java.util.Scanner;
+
+public class StrongNumber {
+    // ei method diye ekta number er factorial ber kora hoy
+    public static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i; // 1 theke n porjonto gun korchi
+        }
+        return fact;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int original = num; // ashol number er copy
+        int sum = 0;
+
+        // prottek digit er factorial ber kore jog korchi
+        while (num > 0) {
+            int digit = num % 10;
+            sum += factorial(digit);
+            num = num / 10;
+        }
+
+        // jogfol ar ashol number ek hole strong number
+        if (sum == original) {
+            System.out.println(original + " is a Strong Number");
+        } else {
+            System.out.println(original + " is not a Strong Number");
+        }
+        sc.close();
+    }
+}
+
+
+6. Even Odd
+
+import java.util.Scanner;
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        // 2 diye bhag korle bhagshesh 0 hole jor, na hole bijor
+        if (num % 2 == 0) {
+            System.out.println(num + " is Even");
+        } else {
+            System.out.println(num + " is Odd");
+        }
+        sc.close();
+    }
+}
+
+
+7. Leap Year
+
+import java.util.Scanner;
+
+public class LeapYear {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+
+        // 4 diye bhag jabe kintu 100 diye jabe na, othoba 400 diye bhag jabe
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " is a Leap Year");
+        } else {
+            System.out.println(year + " is not a Leap Year");
+        }
+        sc.close();
+    }
+}
+
+
+8. Celsius to Fahrenheit
+
+import java.util.Scanner;
+
+public class CelsiusToFahrenheit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = sc.nextDouble(); // temperature e doshomik thakte pare, tai double
+
+        // formula ta holo F = (C * 9/5) + 32
+        double fahrenheit = (celsius * 9 / 5) + 32;
+        System.out.println(celsius + "°C = " + fahrenheit + "°F");
+        sc.close();
+    }
+}
+
+
+9. Perfect Number
+
+import java.util.Scanner;
+
+public class PerfectNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int sum = 0;
+
+        // number ta bade baki shob utpadok (jegulo diye bhag jay) jog korchi
+        for (int i = 1; i < num; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+
+        // utpadok gulor jogfol number er soman hole perfect number
+        if (sum == num) {
+            System.out.println(num + " is a Perfect Number");
+        } else {
+            System.out.println(num + " is not a Perfect Number");
+        }
+        sc.close();
+    }
+}
+
+
+10. Fibonacci Series
+
+import java.util.Scanner;
+
+public class FibonacciSeries {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of terms: ");
+        int n = sc.nextInt();
+
+        int first = 0, second = 1; // series shuru hoy 0 ar 1 diye
+        System.out.print("Fibonacci Series: ");
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print(first + " ");
+            int next = first + second; // porer number = ager duitar jog
+            first = second;
+            second = next;
+        }
+        sc.close();
+    }
+}
+
+
+11. Factorial
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        long fact = 1; // boro number dhorar jonno long nilam
+
+        // 1 theke num porjonto shobgulo gun korchi
+        for (int i = 1; i <= num; i++) {
+            fact *= i;
+        }
+        System.out.println("Factorial of " + num + " is " + fact);
+        sc.close();
+    }
+}
+
+
+12. Sum of Digits
+
+import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int sum = 0;
+
+        // shesh er digit niye jog korchi, tarpor seta kete dichhi
+        while (num > 0) {
+            sum += num % 10;
+            num = num / 10;
+        }
+        System.out.println("Sum of digits = " + sum);
+        sc.close();
+    }
+}
+
+
+13. Star Triangle
+
+import java.util.Scanner;
+
+public class StarTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+
+        // baire r loop ta row er jonno
+        for (int i = 1; i <= rows; i++) {
+            // bhitorer loop prottek row te i ta kore star print kore
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println(); // ek row shesh hole notun line e jacchi
+        }
+        sc.close();
+    }
+}
+
+
+14. Pyramid
+
+import java.util.Scanner;
+
+public class Pyramid {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+
+        for (int i = 1; i <= rows; i++) {
+            // age space dicchi jate star gulo majhkhane ashe
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print(" ");
+            }
+            // prottek row te star hobe 1, 3, 5, 7 ... eivabe
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
+
+
+15. Diamond
+
+import java.util.Scanner;
+
+public class Diamond {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows (odd preferred): ");
+        int n = sc.nextInt();
+
+        // upor er ordhek, ekdom pyramid er moto
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // niche r ordhek, pyramid ta ulta kore boshalam
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
+
+
+16. Number Swap
+
+import java.util.Scanner;
+
+public class NumberSwap {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.println("Before swap: a = " + a + ", b = " + b);
+
+        // tritiyo ekta variable diye odol bodol korchi
+        int temp = a; // a er man ta temp e save kore rakhlam
+        a = b;
+        b = temp;
+
+        System.out.println("After swap: a = " + a + ", b = " + b);
+        sc.close();
+    }
+}
+
+
+17. Decimal to Binary
+
+import java.util.Scanner;
+
+public class DecimalToBinary {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        int decimal = sc.nextInt();
+
+        // Java te binary te convert korar ready-made method ache, seta-i use korlam
+        String binary = Integer.toBinaryString(decimal);
+        System.out.println("Binary of " + decimal + " is " + binary);
+        sc.close();
+    }
+}
+
+
+18. Simple Calculator (Switch-case)
+
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double num1 = sc.nextDouble();
+        System.out.print("Enter second number: ");
+        double num2 = sc.nextDouble();
+        System.out.print("Enter operator (+, -, *, /): ");
+        char op = sc.next().charAt(0); // shudhu prothom character ta nilam
+
+        double result = 0;
+
+        // switch diye operator onujayi kaj korachchi
+        switch (op) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                // shunno diye bhag jay na, tai age check kore nilam
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Cannot divide by zero!");
+                    sc.close();
+                    return;
+                }
+                break;
+            default:
+                // user ulta palta kichu dile ekhane ashbe
+                System.out.println("Invalid operator!");
+                sc.close();
+                return;
+        }
+        System.out.println("Result = " + result);
+        sc.close();
+    }
+}
+
+
+19. Largest among 3 Numbers
+
+import java.util.Scanner;
+
+public class LargestOfThree {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        System.out.print("Enter third number: ");
+        int c = sc.nextInt();
+
+        int largest;
+
+        // if-else diye ektar shathe arektar tulona korchi
+        if (a >= b && a >= c) {
+            largest = a;
+        } else if (b >= a && b >= c) {
+            largest = b;
+        } else {
+            largest = c; // a ar b boro na hole c-i shobcheye boro
+        }
+
+        System.out.println("Largest number is: " + largest);
+        sc.close();
+    }
+}
+
+
+21. Password (do-while)
+
+import java.util.Scanner;
+
+public class PasswordCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String correctPassword = "java123"; // shothik password
+        String input;
+
+        // do-while ontoto ekbar cholbei, password na mille barbar jiggesh korbe
+        do {
+            System.out.print("Enter password: ");
+            input = sc.nextLine();
+            if (!input.equals(correctPassword)) {
+                System.out.println("Wrong password! Try again.");
+            }
+        } while (!input.equals(correctPassword));
+
+        System.out.println("Access granted!");
+        sc.close();
+    }
+}
+
+
+22. Student class with 3 Objects
+
+class Student {
+    String name;
+    int roll;
+    double marks;
+
+    // constructor, object bananor shomoy-i man gulo boshiye dey
+    Student(String name, int roll, double marks) {
+        this.name = name;
+        this.roll = roll;
+        this.marks = marks;
+    }
+
+    // student er tothyo dekhanor method
+    void display() {
+        System.out.println("Name: " + name + ", Roll: " + roll + ", Marks: " + marks);
+    }
+}
+
+public class StudentDemo {
+    public static void main(String[] args) {
+        // tinta student object banalam
+        Student s1 = new Student("Rahim", 101, 85.5);
+        Student s2 = new Student("Karim", 102, 90.0);
+        Student s3 = new Student("Salma", 103, 78.5);
+
+        // prottek tar display() call kore tothyo dekhacchi
+        s1.display();
+        s2.display();
+        s3.display();
+    }
+}
+
+
+23. Use of Local and Instance Variable
+
+public class VariableDemo {
+    // instance variable, eta object er nijer jinish
+    int instanceVar = 50;
+
+    public void show() {
+        // local variable, shudhu ei method er bhitorei kaj kore
+        int localVar = 20;
+        System.out.println("Instance Variable: " + instanceVar);
+        System.out.println("Local Variable: " + localVar);
+    }
+
+    public static void main(String[] args) {
+        VariableDemo obj = new VariableDemo(); // instance variable use korte object lage
+        obj.show();
+    }
+}
+
+
+24. Use of Shift Operator
+
+public class ShiftOperator {
+    public static void main(String[] args) {
+        int num = 8; // binary te eta 1000
+
+        // 2 bar left shift mane 2 er 2 ghat diye gun
+        int leftShift = num << 2; // 8 * 4 = 32
+        System.out.println("Left Shift (8 << 2) = " + leftShift);
+
+        // 1 bar right shift mane 2 er 1 ghat diye bhag
+        int rightShift = num >> 1; // 8 / 2 = 4
+        System.out.println("Right Shift (8 >> 1) = " + rightShift);
+    }
+}
+
+
+25. Leap Year (ternary operator)
+
+import java.util.Scanner;
+
+public class LeapYearTernary {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+
+        // ternary operator: shorto ? shotti hole eta : mittha hole ota
+        String result = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+                        ? year + " is a Leap Year"
+                        : year + " is not a Leap Year";
+
+        System.out.println(result);
+        sc.close();
+    }
+}
+
+
+26. GCD
+
+import java.util.Scanner;
+
+public class GCD {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        // Euclid er niyom: b shunno na hoa porjonto bhagshesh nite thaki
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        System.out.println("GCD = " + a); // shesh e a er moddhei uttor thake
+        sc.close();
+    }
+}
+
+
+27. LCM
+
+import java.util.Scanner;
+
+public class LCM {
+    // LCM ber korte GCD lage, tai alada method banalam
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        // LCM = (a * b) / GCD
+        int lcm = (a * b) / gcd(a, b);
+        System.out.println("LCM = " + lcm);
+        sc.close();
+    }
+}
+
+
+30. Just print how you feel after done this
+
+public class Feelings {
+    public static void main(String[] args) {
+        // shob program shesh korar por kemon lagche seta print korchi
+        System.out.println("I feel great and more confident in Java programming!");
+        System.out.println("Practice makes perfect. Keep coding!");
+    }
+}
